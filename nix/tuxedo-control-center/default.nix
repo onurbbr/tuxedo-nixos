@@ -141,6 +141,9 @@ buildNpmPackage rec {
                 }
             }
         }'
+    substituteInPlace src/dist-data/tuxedo-control-center-tray.desktop \
+        --replace-fail "[Desktop Entry]" "[Desktop Entry]
+    NoDisplay=true"
   '';
 
   # We run a custom build instead of `npm run build` so we can avoid the
