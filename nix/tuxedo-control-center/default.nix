@@ -141,6 +141,18 @@ buildNpmPackage rec {
                 }
             }
         }'
+
+    substituteInPlace src/e-app/backendAPIs/utilsAPI.ts \
+      --replace-fail \
+'            const requestedInfo: string = app.getVersion();
+            resolve(requestedInfo);' \
+'            resolve("v${version}");'
+
+    substituteInPlace src/e-app/backendAPIs/initMain.ts \
+      --replace-fail \
+'    tray.state.tccGUIVersion = `v''${app.getVersion()}`;' \
+"    tray.state.tccGUIVersion = \"v${version}\";"
+
     substituteInPlace src/dist-data/tuxedo-control-center-tray.desktop \
         --replace-fail "[Desktop Entry]" "[Desktop Entry]
     NoDisplay=true"
