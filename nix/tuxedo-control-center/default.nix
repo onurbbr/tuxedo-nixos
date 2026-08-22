@@ -7,7 +7,7 @@
   udev,
   makeWrapper,
   nodejs_24,
-  electron_41,
+  electron_42,
   buildNpmPackage,
   fetchFromGitHub,
   nvidiaPackage ? null,
@@ -17,10 +17,10 @@ let
   ## Update Instructions
   #
   # see ./README.md
-  version = "3.0.6";
+  version = "3.0.9";
 
   nodejs = nodejs_24;
-  electron = electron_41;
+  electron = electron_42;
 
   runtime-dep-path = lib.makeBinPath (
     (import ../runtime-dep-pkgs.nix) { inherit pkgs lib nvidiaPackage; }
@@ -35,10 +35,10 @@ buildNpmPackage rec {
     owner = "tuxedocomputers";
     repo = "tuxedo-control-center";
     rev = "v${version}";
-    hash = "sha256-wb4dj0YjfO9h+1H91dwZL8XSt3oaMe+wmoka4kyMZg8=";
+    hash = "sha256-jK4ZiurcKrZt2KqCjrccVuPtzvqFEaMjxl7BLsdE76w=";
   };
 
-  npmDepsHash = "sha256-QhyU983cEmtv1yXnFf5tJqx40lZp67nuwgfdc2m5kFY=";
+  npmDepsHash = "sha256-de+UDVubEWxK0Ft9NCgtAisOg40+K2R1OEywX/sKlOo=";
 
   # The lockfile pins three dependencies (dbus-next, node-ble, usocket) to
   # git revisions. buildNpmPackage needs to be told it's OK to use them, and
@@ -278,7 +278,7 @@ buildNpmPackage rec {
     description = "Fan and power management GUI for Tuxedo laptops";
     homepage = "https://github.com/tuxedocomputers/tuxedo-control-center/";
     license = licenses.gpl3Plus;
-    maintainers = [ "KalokaK" ];
+    maintainers = [ "onurbbr" ];
     platforms = [ "x86_64-linux" ];
   };
 }
