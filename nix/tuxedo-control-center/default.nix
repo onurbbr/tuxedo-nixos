@@ -17,7 +17,7 @@ let
   ## Update Instructions
   #
   # see ./README.md
-  version = "3.0.10";
+  version = "3.1.3";
 
   nodejs = nodejs_24;
   electron = electron_42;
@@ -35,10 +35,10 @@ buildNpmPackage rec {
     owner = "tuxedocomputers";
     repo = "tuxedo-control-center";
     rev = "v${version}";
-    hash = "sha256-9jGru71QtKmGp3uQu/9W/IgzVjKruscxdGNBoXTYN4k=";
+    hash = "sha256-S7+yMBFZp7txoD5HyOWEwXnvqc65qXRAJ5ZYnuHc/tk=";
   };
 
-  npmDepsHash = "sha256-ZunuBAsIBtbXmrH3ctcX5tygMF5h015XYomtjqRNLhM=";
+  npmDepsHash = "sha256-13jE94DpQz3chUMgqGCqHSJpBgJ2tpSdjnwj03hrOrA=";
 
   # The lockfile pins three dependencies (dbus-next, node-ble, usocket) to
   # git revisions. buildNpmPackage needs to be told it's OK to use them, and
