@@ -18,13 +18,20 @@
     }:
     let
       system = "x86_64-linux";
+
+      pkgs = import nixpkgs {
+        inherit system;
+
+        config = {
+          permittedInsecurePackages = [
+            "electron-42.11.18"
+          ];
+        };
+      };
     in
     {
-
-      # nodejs 24 and electron 41 are both packaged in nixpkgs 26.05, so we no
-      # longer need an old nixpkgs pin or any insecure-package whitelisting.
       packages.${system}.default =
-        nixpkgs.legacyPackages.${system}.callPackage ./nix/tuxedo-control-center { };
+        pkgs.callPackage ./nix/tuxedo-control-center { };
 
       nixosModules.default =
         { config, pkgs, ... }:
